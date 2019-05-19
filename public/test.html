@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--   <a href="#/home">home</a>
+<a href="#/about">about</a> -->
+
+  <a onclick="go('/home')">home</a>
+  <a onclick="go('/about')">about</a>
+  <div id="view"></div>
+  <script>
+    const view = document.getElementById('view')
+
+    function go(pathname) {
+      view.innerHTML = pathname
+      window.history.pushState({}, null, pathname)
+    }
+
+    window.addEventListener('popstate', () => {
+      console.log(location.pathname)
+      window.history.replaceState({}, null, location.pathname)
+      view.innerHTML = location.pathname
+    })
+
+    // window.addEventListener('load', () => {
+    //   view.innerHTML = location.hash.slice(1)
+    // })
+    //
+    // window.addEventListener('hashchange', () => {
+    //   view.innerHTML = location.hash.slice(1)
+    // })
+  </script>
+</body>
+
+</html>
