@@ -4,8 +4,10 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-new Vue({
+const vm = new Vue({
   name: 'main',
   router,
   render: h => h(App)
 }).$mount('#app')
+
+// console.log(router.app === vm)
